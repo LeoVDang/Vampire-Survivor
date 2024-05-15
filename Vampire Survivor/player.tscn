@@ -17,7 +17,5 @@ position = Vector2(0, 9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_44hl6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Gun" parent="." instance=ExtResource("3_xjay4")]
 position = Vector2(27, -13)

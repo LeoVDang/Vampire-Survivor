@@ -7,6 +7,7 @@
 radius = 408.24
 
 [node name="Gun" type="Area2D"]
+rotation = -0.00889317
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_qve2k")
@@ -21,4 +22,11 @@ position = Vector2(65, -14)
 texture = ExtResource("1_hvaex")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
 position = Vector2(26, -12)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

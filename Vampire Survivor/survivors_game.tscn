@@ -1,33 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp1ya0qdvv2ha"]
+[gd_scene load_steps=5 format=3 uid="uid://cp1ya0qdvv2ha"]
 
 [ext_resource type="PackedScene" uid="uid://cekmmmb3u4q0e" path="res://player.tscn" id="1_1h8yx"]
+[ext_resource type="Script" path="res://survivors_game.gd" id="1_40f2h"]
 [ext_resource type="PackedScene" uid="uid://xwso7q2lav5c" path="res://pine_tree.tscn" id="2_73n6x"]
-[ext_resource type="PackedScene" uid="uid://bqn1r37mswk1q" path="res://mob.tscn" id="3_fcwqh"]
+
+[sub_resource type="Curve2D" id="Curve2D_4jrfp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -94, -81, 0, 0, 0, 0, 1303, -78, 0, 0, 0, 0, 1313, 771, 0, 0, 0, 0, -90, 774, 0, 0, 0, 0, -93, -76)
+}
+point_count = 5
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_40f2h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.00173611
+anchor_top = -0.00308642
+anchor_right = 0.0850694
+anchor_bottom = 0.112654
 offset_right = 1204.0
 offset_bottom = 703.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_1h8yx")]
 position = Vector2(575, 383)
 
-[node name="Mob" parent="." instance=ExtResource("3_fcwqh")]
-position = Vector2(681, 551)
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-575, -383)
+curve = SubResource("Curve2D_4jrfp")
 
-[node name="Mob2" parent="." instance=ExtResource("3_fcwqh")]
-position = Vector2(236, 366)
-
-[node name="Mob3" parent="." instance=ExtResource("3_fcwqh")]
-position = Vector2(919, 309)
-
-[node name="Mob4" parent="." instance=ExtResource("3_fcwqh")]
-position = Vector2(481, 124)
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-94, -81)
+rotation = 0.00214746
 
 [node name="PineTree" parent="." instance=ExtResource("2_73n6x")]
 position = Vector2(201, 162)
@@ -55,3 +65,9 @@ position = Vector2(86, 567)
 
 [node name="PineTree9" parent="." instance=ExtResource("2_73n6x")]
 position = Vector2(350, 621)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

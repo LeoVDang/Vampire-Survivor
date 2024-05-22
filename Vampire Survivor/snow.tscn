@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ebxtpu1vi34l"]
+
+[ext_resource type="Script" path="res://Snow.gd" id="1_6ryt5"]
+
+[sub_resource type="Curve" id="Curve_4p1h1"]
+_data = [Vector2(0.00558659, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Snow" type="Node2D"]
+script = ExtResource("1_6ryt5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(19, -321)
+amount = 150
+lifetime = 1.15
+emission_shape = 3
+emission_rect_extents = Vector2(520, 1)
+gravity = Vector2(-200, 980)
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_4p1h1")
+color = Color(0.894118, 0.894118, 0.894118, 1)

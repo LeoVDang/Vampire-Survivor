@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cekmmmb3u4q0e"]
+[gd_scene load_steps=9 format=3 uid="uid://cekmmmb3u4q0e"]
 
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_sj2k1"]
 [ext_resource type="Script" path="res://player.gd" id="1_ti732"]
 [ext_resource type="PackedScene" uid="uid://5oultoey8fnm" path="res://gun.tscn" id="3_xjay4"]
+[ext_resource type="PackedScene" uid="uid://ebxtpu1vi34l" path="res://snow.tscn" id="4_2icai"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44hl6"]
 radius = 29.15
@@ -58,3 +59,5 @@ value = 100.0
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Snow" parent="Camera2D" instance=ExtResource("4_2icai")]

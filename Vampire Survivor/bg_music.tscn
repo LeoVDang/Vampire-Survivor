@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://brnbid5i86u1y"]
+
+[ext_resource type="AudioStream" uid="uid://4kkehobo6i0b" path="res://C418 - Minecraft - Minecraft Volume Alpha.mp3" id="1_dqoss"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_dqoss")
+autoplay = true
